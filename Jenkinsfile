@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t ${ECR_REPO}:${IMAGE_TAG} ."
+                sh "docker build -t ${ECR_REPO}:${env.BUILD_NUMBER} ."
                 echo 'Docker image built successfully'
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-creds'
+                    credentialsId: 'aws-credss'
                 ]]) {
                     sh """
                         aws ecr get-login-password --region ${AWS_REGION} | \
