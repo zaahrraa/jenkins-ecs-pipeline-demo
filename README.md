@@ -12,6 +12,7 @@ The pipeline demonstrates how to automate the entire software delivery process u
 
 ## Architecture
 
+![diagram](diagram/architecture.png)
 The pipeline follows this flow:
 
 Developer pushes code to GitHub -> GitHub webhook triggers Jenkins -> Jenkins builds Docker image -> Jenkins runs tests -> Jenkins pushes image to Amazon ECR -> Jenkins deploys to Amazon ECS Fargate -> Application becomes live for users
